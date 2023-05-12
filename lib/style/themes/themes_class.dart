@@ -12,8 +12,8 @@ class My_theme {
         iconTheme: IconThemeData(color: Colors.white, size: 35)),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: colors.Primarycolor,
-      unselectedItemColor: Colors.white,
-      backgroundColor: Colors.grey,
+      unselectedItemColor: Colors.grey,
+      backgroundColor: Colors.white,
     ),
     textTheme: TextTheme(
         bodyLarge: GoogleFonts.poppins(
