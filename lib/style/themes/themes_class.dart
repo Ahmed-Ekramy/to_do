@@ -16,12 +16,15 @@ class My_theme {
       backgroundColor: Colors.white,
     ),
     textTheme: TextTheme(
-        bodyLarge: GoogleFonts.poppins(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-        bodyMedium: GoogleFonts.roboto(
-            fontSize: 12, fontWeight: FontWeight.normal, color: Colors.black)),
+      bodyLarge: GoogleFonts.poppins(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+      ),
+      bodyMedium: GoogleFonts.roboto(
+          fontSize: 12, fontWeight: FontWeight.normal, color: Colors.black),
+      bodySmall: GoogleFonts.poppins(
+          fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xffA9A9A9)),
+    ),
   );
   static ThemeData darktheme = ThemeData();
 }

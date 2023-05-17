@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/setting_screen.dart';
 import '../screens/task_screen.dart';
+import '../screens/widget/show_addTske_modal_bottom_sheet.dart';
 
 class home_layout extends StatefulWidget {
   static const String routName = "home_Layout";
@@ -23,7 +24,9 @@ class _home_layoutState extends State<home_layout> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showTaskSheet();
+        },
         child: Icon(
           Icons.add,
           size: 40,
@@ -61,4 +64,22 @@ class _home_layoutState extends State<home_layout> {
   }
 
   List<Widget> tabs = [taskScreen(), settingScreen()];
+
+  void showTaskSheet() {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+      isScrollControlled: true,
+      builder: (context) {
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: Container(
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
+              child: ShowAddTaskSheet()),
+        );
+      },
+    );
+  }
 }
