@@ -13,20 +13,33 @@ class _taskScreenState extends State<taskScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      DatePicker(DateTime.now(),
+      Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: DatePicker(
+          DateTime.now(),
           initialSelectedDate: DateTime.now(),
           selectionColor: colors.Primarycolor,
           selectedTextColor: Colors.white,
-// dateTextStyle: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),
-// monthTextStyle: TextStyle(color: Colors.white),
-//     dayTextStyle: TextStyle(color: Colors.white),
-          height: 100,
-          deactivatedColor: Colors.white, onDateChange: (newDate) {
-        // New date selected
-        setState(() {
-          date = newDate;
-        });
-      })
+          // deactivatedColor: Colors.white,
+          onDateChange: (newDate) {
+            date = newDate;
+          },
+        ),
+      )
+//       DatePicker(DateTime.now(),
+//           initialSelectedDate: DateTime.now(),
+//           selectionColor: colors.Primarycolor,
+//           selectedTextColor: Colors.white,
+// // dateTextStyle: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),
+// // monthTextStyle: TextStyle(color: Colors.white),
+// //     dayTextStyle: TextStyle(color: Colors.white),
+//           height: 100,
+//           deactivatedColor: Colors.white, onDateChange: (newDate) {
+//         // New date selected
+//         setState(() {
+//           date = newDate;
+//         });
+//       })
     ]);
   }
 }

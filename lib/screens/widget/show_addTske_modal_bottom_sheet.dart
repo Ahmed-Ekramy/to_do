@@ -10,6 +10,7 @@ class ShowAddTaskSheet extends StatefulWidget {
 
 class _ShowAddTaskSheetState extends State<ShowAddTaskSheet> {
   var kayMo = GlobalKey<FormState>();
+  var slectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +41,7 @@ class _ShowAddTaskSheetState extends State<ShowAddTaskSheet> {
               ),
               SizedBox(
                 width: double.infinity,
+
                 // margin: EdgeInsets.only(left: 20,right: 20),
                 child: TextFormField(
                   validator: (value) {
@@ -72,7 +74,7 @@ class _ShowAddTaskSheetState extends State<ShowAddTaskSheet> {
               TextFormField(
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return ("please enter take description");
+                    return ("please enter task description");
                   }
                 },
                 // style: TextStyle(height: 2,locale: Locale.fromSubtags()),
@@ -111,8 +113,11 @@ class _ShowAddTaskSheetState extends State<ShowAddTaskSheet> {
                     choooseDate(context);
                   },
                   child: Text(
-                    "12/12/20012",
-                    style: Theme.of(context).textTheme.bodySmall,
+                    slectedDate.toString().substring(0, 10),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(color: Colors.blue),
                   ),
                 ),
               ),
@@ -139,8 +144,8 @@ class _ShowAddTaskSheetState extends State<ShowAddTaskSheet> {
     );
   }
 
-  void choooseDate(BuildContext context) {
-    showDatePicker(
+  Future<void> choooseDate(BuildContext context) async {
+    DateTime? chosenDate = await showDatePicker(
         context: context,
         builder: (context, child) => Theme(
             data: Theme.of(context).copyWith(
@@ -153,5 +158,7 @@ class _ShowAddTaskSheetState extends State<ShowAddTaskSheet> {
         initialDate: DateTime.now(),
         firstDate: DateTime.now(),
         lastDate: DateTime.now().add(const Duration(days: 365)));
+    slectedDate = chosenDate!;
+    setState(() {});
   }
 }

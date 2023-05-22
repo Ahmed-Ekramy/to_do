@@ -19,6 +19,10 @@ class _home_layoutState extends State<home_layout> {
     return Scaffold(
       extendBody: true,
       appBar: AppBar(
+        leading: Icon(
+          Icons.checklist,
+          color: Colors.white,
+        ),
         title: Text("ToDo List"),
         // toolbarHeight: 160,
       ),
